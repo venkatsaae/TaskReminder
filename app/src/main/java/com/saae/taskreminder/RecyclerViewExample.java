@@ -25,7 +25,7 @@ import java.util.List;
  * Created by Saae on 5/6/2017.
  */
 
-public class RecyclerViewExample extends AppCompatActivity {
+public class RecyclerViewExample extends AppCompatActivity  {
 
 
 
@@ -57,6 +57,8 @@ public class RecyclerViewExample extends AppCompatActivity {
     public class Adapter extends RecyclerView.Adapter<MyViewHolder>{
 
         List<String>list;
+        ViewBinderHelper viewBinderHelper=new ViewBinderHelper(RecyclerViewExample.this);
+
         public Adapter(List<String>list){
             this.list=list;
 
@@ -73,11 +75,14 @@ public class RecyclerViewExample extends AppCompatActivity {
             holder.tv.setText(list.get(position));
 
             String dataObject = list.get(position);
-            ViewBinderHelper viewBinderHelper=new ViewBinderHelper();
+            //viewBinderHelper.setOpenOnlyOne(true);
+
+            viewBinderHelper.setOpenOnlyOne(true);
 
             // Save/restore the open/close state.
             // You need to provide a String id which uniquely defines the data object.
             viewBinderHelper.bind(holder.swipeLayout, dataObject);
+
             holder.img_remove.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

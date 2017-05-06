@@ -24,7 +24,9 @@
 
 package com.saae.taskreminder;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -55,6 +57,21 @@ public class ViewBinderHelper {
     private volatile boolean openOnlyOne = false;
     private final Object stateChangeLock = new Object();
 
+    RecyclerViewExample appCompatActivity;
+
+    public ViewBinderHelper(Context context)
+    {
+        appCompatActivity= (RecyclerViewExample) context;
+    }
+
+    public Map<String, Integer> getMapStates() {
+        return mapStates;
+    }
+
+    public void setMapStates(Map<String, Integer> mapStates) {
+        this.mapStates = mapStates;
+    }
+
     /**
      * Help to save and restore open/close state of the swipeLayout. Call this method
      * when you bind your view holder with the data object.
@@ -74,11 +91,17 @@ public class ViewBinderHelper {
         swipeLayout.setDragStateChangeListener(new SwipeRevealLayout.DragStateChangeListener() {
             @Override
             public void onDragStateChanged(int state) {
+
+
                 mapStates.put(id, state);
 
                 if (openOnlyOne) {
                     closeOthers(id, swipeLayout);
                 }
+
+              ////  appCompatActivity.onDragstateChanged(state);
+
+
             }
         });
 
