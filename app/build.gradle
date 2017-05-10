@@ -38,4 +38,5 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxjava:2.0.9'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.8'
     compile 'com.google.dagger:dagger:2.8'
+    compile 'com.google.android.gms:play-services-vision:10.2.4'
 }
