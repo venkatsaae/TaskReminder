@@ -11,7 +11,7 @@
         android:name=".Dependency.MyApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".scanActivity">
+        <activity android:name=".ListExample">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
